@@ -39,7 +39,7 @@ const LazyHydrationWrapper = defineComponent({
     const result = useLazyHydration();
 
     if (!result.willPerformHydration) {
-      return () => normalizeSlot(slots.default!());
+      return () => normalizeSlot(slots.default!({}));
     }
 
     result.onHydrated(() => emit('hydrated'));
@@ -76,7 +76,7 @@ const LazyHydrationWrapper = defineComponent({
       useHydrateWhenTriggered(result, toRef(props, 'whenTriggered'));
     }
 
-    return () => normalizeSlot(slots.default!());
+    return () => normalizeSlot(slots.default!({}));
   },
 });
 

@@ -40,7 +40,7 @@ export default function traverseChildren(
         return;
       }
 
-      const slotContent = (vnode.children as Slots)[slotName]!();
+      const slotContent = (vnode.children as Slots)[slotName]!({});
 
       if (Array.isArray(slotContent)) {
         slotContent.forEach((child) => traverseChildren(child, fn));
